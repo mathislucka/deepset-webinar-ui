@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { modelCategories, formatCurrency } from '../data/modelPricing';
 
 const Calculator = () => {
@@ -8,6 +8,7 @@ const Calculator = () => {
   const [useCache, setUseCache] = useState(false);
   const [cacheRatio, setCacheRatio] = useState(50);
   const [selectedModelCategory, setSelectedModelCategory] = useState('all');
+  const [viewMode, setViewMode] = useState('table'); // 'table' or 'chart'
 
   // Calculate queries per month (30 days)
   const queriesPerMonth = queriesPerDay * 30;
