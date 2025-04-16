@@ -47,6 +47,38 @@
   color: var(--text-secondary);
 }
 
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.footer-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.footer-disclaimer {
+  color: var(--secondary-color);
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
 .calculator-container {
   margin-bottom: 2rem;
 }
