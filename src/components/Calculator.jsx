@@ -303,17 +303,40 @@ const Calculator = () => {
 
             <div className="mt-4">
               <h3>Best Value Options</h3>
-              <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1rem' }}>
+              <div className="model-cards">
                 {filteredModels.slice(0, 3).map((result, index) => (
-                  <div key={index} className="card" style={{ margin: 0, padding: '1rem' }}>
-                    <div className="text-sm font-semibold">{result.model}</div>
-                    <div className="text-xs">{result.provider}</div>
-                    <div className="mt-4">
-                      <div className="text-lg font-semibold highlight">{formatCurrency(result.totalCost)}</div>
-                      <div className="text-xs">per month</div>
+                  <div key={index} className="model-card">
+                    <div className="model-card-header">
+                      <div>
+                        <div className="text-sm font-semibold">{result.model}</div>
+                        <div className="model-card-provider">{result.provider}</div>
+                      </div>
                     </div>
-                    <div className="text-xs mt-4">
-                      <div>{formatCurrency(result.pricePerQuery)} per query</div>
+                    
+                    <div className="model-card-cost">
+                      <div className="text-xs">Monthly Cost:</div>
+                      <div className="model-card-total">{formatCurrency(result.totalCost)}</div>
+                    
+                      <div className="model-card-details">
+                        <div className="model-card-detail">
+                          <span>Input</span>
+                          <strong>{formatCurrency(result.inputCost)}</strong>
+                        </div>
+                        <div className="model-card-detail">
+                          <span>Output</span>
+                          <strong>{formatCurrency(result.outputCost)}</strong>
+                        </div>
+                        <div className="model-card-detail">
+                          <span>Per Query</span>
+                          <strong>{formatCurrency(result.pricePerQuery)}</strong>
+                        </div>
+                        {useCache && (
+                          <div className="model-card-detail">
+                            <span>Cached</span>
+                            <strong>{formatCurrency(result.cachedInputCost)}</strong>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 ))}
