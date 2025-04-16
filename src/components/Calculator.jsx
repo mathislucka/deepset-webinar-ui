@@ -207,34 +207,98 @@ const Calculator = () => {
             <h2>Model Cost Comparison</h2>
             <p className="text-sm mb-4">Comparing monthly costs across all supported models.</p>
            
-            <div className="table-container" style={{ overflowX: 'auto' }}>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Provider</th>
-                    <th>Model</th>
-                    <th>Input Cost</th>
-                    {useCache && <th>Cached Cost</th>}
-                    <th>Output Cost</th>
-                    <th>Total Cost</th>
-                    <th>Per Query</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filteredModels.map((result, index) => (
-                    <tr key={index}>
-                      <td>{result.provider}</td>
-                      <td>{result.model}</td>
-                      <td>{formatCurrency(result.inputCost)}</td>
-                      {useCache && <td>{formatCurrency(result.cachedInputCost)}</td>}
-                      <td>{formatCurrency(result.outputCost)}</td>
-                      <td className="font-semibold">{formatCurrency(result.totalCost)}</td>
-                      <td>{formatCurrency(result.pricePerQuery)}</td>
+            {viewMode === 'table' && (
+              <div className="table-container" style={{ overflowX: 'auto' }}>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Provider</th>
+                      <th>Model</th>
+                      <th>Input Cost</th>
+                      {useCache && <th>Cached Cost</th>}
+                      <th>Output Cost</th>
+                      <th>Total Cost</th>
+                      <th>Per Query</th>
                     </tr>
+                  </thead>
+                  <tbody>
+                    {filteredModels.map((result, index) => (
+                      <tr key={index}>
+                        <td>{result.provider}</td>
+                        <td>{result.model}</td>
+                        <td>{formatCurrency(result.inputCost)}</td>
+                        {useCache && <td>{formatCurrency(result.cachedInputCost)}</td>}
+                        <td>{formatCurrency(result.outputCost)}</td>
+                        <td className="font-semibold">{formatCurrency(result.totalCost)}</td>
+                        <td>{formatCurrency(result.pricePerQuery)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            
+            {viewMode === 'chart' && (
+              <div className="chart-container">
+                <div className="cost-bars">
+                  {filteredModels.slice(0, 10).map((result, index) => (
+                    <div key={index} className="cost-bar-container">
+                      <div className="cost-bar-label">
+                        <div className="text-xs">{result.provider}</div>
+                        <div className="text-sm font-semibold">{result.model}</div>
+                      </div>
+                      <div className="cost-bar-wrapper">
+                        <div className="cost-bar-track">
+                          <div 
+                            className="cost-bar input-cost" 
+                            style={{ 
+                              width: `${Math.min(100, (result.inputCost / result.totalCost) * 100)}%`,
+                              backgroundColor: 'rgba(79, 70, 229, 0.7)'
+                            }} 
+                            title={`Input Cost: ${formatCurrency(result.inputCost)}`}
+                          />
+                          {useCache && (
+                            <div 
+                              className="cost-bar cache-cost" 
+                              style={{ 
+                                width: `${Math.min(100, (result.cachedInputCost / result.totalCost) * 100)}%`,
+                                backgroundColor: 'rgba(79, 70, 229, 0.4)'
+                              }} 
+                              title={`Cached Cost: ${formatCurrency(result.cachedInputCost)}`}
+                            />
+                          )}
+                          <div 
+                            className="cost-bar output-cost" 
+                            style={{ 
+                              width: `${Math.min(100, (result.outputCost / result.totalCost) * 100)}%`,
+                              backgroundColor: 'rgba(79, 70, 229, 0.9)'
+                            }} 
+                            title={`Output Cost: ${formatCurrency(result.outputCost)}`}
+                          />
+                        </div>
+                      </div>
+                      <div className="cost-bar-value font-semibold">{formatCurrency(result.totalCost)}</div>
+                    </div>
                   ))}
-                </tbody>
-              </table>
-            </div>
+                </div>
+                <div className="chart-legend mt-4">
+                  <div className="flex items-center gap-2">
+                    <div className="legend-color" style={{ backgroundColor: 'rgba(79, 70, 229, 0.7)', width: '12px', height: '12px' }}></div>
+                    <div className="text-xs">Input Cost</div>
+                  </div>
+                  {useCache && (
+                    <div className="flex items-center gap-2">
+                      <div className="legend-color" style={{ backgroundColor: 'rgba(79, 70, 229, 0.4)', width: '12px', height: '12px' }}></div>
+                      <div className="text-xs">Cached Input Cost</div>
+                    </div>
+                  )}
+                  <div className="flex items-center gap-2">
+                    <div className="legend-color" style={{ backgroundColor: 'rgba(79, 70, 229, 0.9)', width: '12px', height: '12px' }}></div>
+                    <div className="text-xs">Output Cost</div>
+                  </div>
+                </div>
+              </div>
+            )}
 
             <div className="mt-4">
               <h3>Best Value Options</h3>
