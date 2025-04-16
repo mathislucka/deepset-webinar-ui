@@ -1,23 +1,17 @@
-import { useState } from 'react'
 import './App.css'
+import DSUCalculator from './components/DSUCalculator'
+import './components/DSUCalculator.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
       <header className="App-header">
-        <h1>React + Vite on GitHub Pages</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test HMR
-          </p>
+        <h1>Vector Database Pricing Calculator</h1>
+        <div className="calculator-wrapper">
+          <DSUCalculator />
         </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
+        <p className="pricing-explanation">
+          This calculator helps estimate costs for vector database storage for AI applications.
         </p>
       </header>
     </div>
