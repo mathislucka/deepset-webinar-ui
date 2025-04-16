@@ -166,6 +166,24 @@ const Calculator = () => {
               ))}
             </select>
           </div>
+          
+          <div className="form-group">
+            <label>View Mode</label>
+            <div className="tab-list">
+              <div 
+                className={`tab ${viewMode === 'table' ? 'active' : ''}`}
+                onClick={() => setViewMode('table')}
+              >
+                Table View
+              </div>
+              <div 
+                className={`tab ${viewMode === 'chart' ? 'active' : ''}`}
+                onClick={() => setViewMode('chart')}
+              >
+                Chart View
+              </div>
+            </div>
+          </div>
 
           <div className="summary-container mt-4">
             <div className="card" style={{ backgroundColor: 'rgba(79, 70, 229, 0.05)' }}>
