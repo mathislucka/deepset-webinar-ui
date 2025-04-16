@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { modelCategories, formatCurrency } from '../data/modelPricing';
+import './CostChart.css';
 
 const Calculator = () => {
   const [queriesPerDay, setQueriesPerDay] = useState(1000);
