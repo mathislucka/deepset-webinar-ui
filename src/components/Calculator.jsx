@@ -93,7 +93,9 @@ const Calculator = () => {
               value={queriesPerDay}
               onChange={handleQueriesChange}
               min="1"
+              placeholder="Enter number of queries per day"
             />
+            <div className="text-xs text-secondary mt-1">Primary cost driver for your RAG application</div>
           </div>
           
           <div className="form-group">
@@ -104,7 +106,9 @@ const Calculator = () => {
               value={inputTokens}
               onChange={handleInputTokensChange}
               min="1"
+              placeholder="Typical RAG context: 10,000-20,000 tokens"
             />
+            <div className="text-xs text-secondary mt-1">Typically 15,000 tokens for RAG with context</div>
           </div>
           
           <div className="form-group">
@@ -115,7 +119,9 @@ const Calculator = () => {
               value={outputTokens}
               onChange={handleOutputTokensChange}
               min="1"
+              placeholder="Typical response: 500-1000 tokens"
             />
+            <div className="text-xs text-secondary mt-1">Typically 700 tokens for a detailed response</div>
           </div>
 
           <div className="form-group">
