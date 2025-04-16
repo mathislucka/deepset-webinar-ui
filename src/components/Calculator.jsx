@@ -81,7 +81,7 @@ const Calculator = () => {
 
   return (
     <div className="calculator-container">
-      <div className="grid" style={{ gridTemplateColumns: '1fr 2fr' }}>
+      <div className="grid" style={{ gridTemplateColumns: '350px 1fr' }}>
         <div className="card">
           <h2>RAG Chat Cost Calculator</h2>
           <p className="text-sm mb-4">Calculate the monthly costs for your retrieval augmented generation chat application.</p>
