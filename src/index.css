@@ -3,9 +3,18 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* deepset color palette */
+  --color-logo: #071233;
+  --color-accent: #2558ff;
+  --color-surface-subtle: #ffffff;
+  --color-surface-weak: #f4f6fa;
+  --color-surface-medium: #e6ecff;
+  --color-text-primary: #071233;
+  --color-text-on-dark: #ffffff;
+
+  color-scheme: light;
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-subtle);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
