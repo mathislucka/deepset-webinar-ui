@@ -1,27 +1,51 @@
-import { useState } from 'react'
+import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
+import Calculator from './components/Calculator';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#2563eb',
+    },
+    secondary: {
+      main: '#10b981',
+    },
+    background: {
+      default: '#f8fafc',
+    },
+  },
+  typography: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    h3: {
+      fontWeight: 700,
+      fontSize: '2rem',
+      '@media (min-width:600px)': {
+        fontSize: '2.5rem',
+      },
+    },
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+        },
+      },
+    },
+  },
+});
 
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>React + Vite on GitHub Pages</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div className="App">
+        <Calculator />
+      </div>
+    </ThemeProvider>
   )
 }
+
+export default App
 
 export default App
