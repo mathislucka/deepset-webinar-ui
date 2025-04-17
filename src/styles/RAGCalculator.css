@@ -1,0 +1,269 @@
+/* RAG Calculator Styling */
+.rag-calculator {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  overflow-y: auto;
+  background: var(--color-surface-subtle);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(7, 18, 51, 0.04);
+}
+
+.calculator-header {
+  margin-bottom: 24px;
+}
+
+.calculator-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: var(--color-text-primary);
+}
+
+.calculator-header p {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--color-text-primary);
+  opacity: 0.8;
+}
+
+.calculator-form {
+  background: var(--color-surface-weak);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-row:last-child {
+  margin-bottom: 0;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(7, 18, 51, 0.1);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: var(--color-surface-subtle);
+  color: var(--color-text-primary);
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.provider-select {
+  flex: 2;
+}
+
+.comparison-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 150px;
+}
+
+/* Switch styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin-top: 8px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(7, 18, 51, 0.2);
+  transition: .3s;
+  border-radius: 12px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--color-accent);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--color-accent);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Results section */
+.calculator-results {
+  flex: 1;
+  margin-bottom: 24px;
+}
+
+.comparison-table h3, .provider-table h3 {
+  font-size: 1.4rem;
+  margin: 0 0 16px 0;
+  color: var(--color-text-primary);
+}
+
+.table-container {
+  overflow-x: auto;
+  background: var(--color-surface-weak);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead {
+  background: rgba(7, 18, 51, 0.05);
+}
+
+th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  border-bottom: 1px solid rgba(7, 18, 51, 0.1);
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(7, 18, 51, 0.05);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.total-cost {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.results-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  background: var(--color-surface-weak);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.detail-item span:first-child {
+  color: var(--color-text-primary);
+  opacity: 0.7;
+}
+
+.detail-item span:last-child {
+  font-weight: 500;
+}
+
+.results-summary {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  opacity: 0.7;
+}
+
+/* Info section */
+.calculator-info {
+  background: var(--color-surface-weak);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.info-section h4 {
+  font-size: 1.1rem;
+  margin: 0 0 12px 0;
+  color: var(--color-text-primary);
+}
+
+.info-section p {
+  font-size: 0.9rem;
+  margin: 0 0 8px 0;
+  color: var(--color-text-primary);
+  opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form-group {
+    min-width: 100%;
+  }
+  
+  .view-controls {
+    flex-direction: column;
+  }
+  
+  .provider-select, .comparison-toggle {
+    min-width: 100%;
+  }
+  
+  .comparison-toggle {
+    margin-top: 16px;
+  }
+  
+  .calculator-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .rag-calculator {
+    padding: 16px;
+  }
+}
