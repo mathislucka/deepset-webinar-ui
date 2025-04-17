@@ -45,17 +45,50 @@ const appCards = [
 ];
 
 const Dashboard = () => {
+  const [activeApp, setActiveApp] = useState(null);
+
   const handleAppClick = (appId) => {
-    // This would navigate to the appropriate app in a real implementation
-    console.log(`Navigating to app: ${appId}`);
-    // Example: history.push(`/apps/${appId}`);
+    setActiveApp(appId);
+    console.log(`Opening app: ${appId}`);
   };
 
-  return (
-    <div className="dashboard-container">
-      <DashboardHeader />
-      
-      <main className="dashboard-content">
+  const handleBackToApps = () => {
+    setActiveApp(null);
+  };
+
+  // Render the selected app or the app grid
+  const renderContent = () => {
+    if (activeApp === 'rag-calculator') {
+      return (
+        <div className="app-container">
+          <div className="app-header">
+            <button className="back-button" onClick={handleBackToApps}>
+              ← Back to Apps
+            </button>
+          </div>
+          <RAGCalculator />
+        </div>
+      );
+    } else if (activeApp) {
+      // Placeholder for other apps
+      return (
+        <div className="app-container">
+          <div className="app-header">
+            <button className="back-button" onClick={handleBackToApps}>
+              ← Back to Apps
+            </button>
+          </div>
+          <div className="app-placeholder">
+            <h2>{appCards.find(app => app.id === activeApp)?.title}</h2>
+            <p>This application is not yet implemented.</p>
+          </div>
+        </div>
+      );
+    }
+
+    // Default: Show the app grid
+    return (
+      <>
         <section className="welcome-section">
           <h2>Welcome to the deepset App Suite</h2>
           <p>Select an application to get started</p>
@@ -72,6 +105,16 @@ const Dashboard = () => {
             />
           ))}
         </section>
+      </>
+    );
+  };
+
+  return (
+    <div className="dashboard-container">
+      <DashboardHeader />
+      
+      <main className="dashboard-content">
+        {renderContent()}
       </main>
 
       <footer className="dashboard-footer">
