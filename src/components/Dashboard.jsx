@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DashboardHeader from './DashboardHeader';
 import AppCard from './AppCard';
-import RAGCalculator from './RAGCalculator';
 import '../styles/Dashboard.css';
 
-// Application cards data
+// Mock data for the app cards
 const appCards = [
   {
-    id: 'rag-calculator',
-    title: 'RAG Calculator',
-    description: 'Calculate Large Language Model costs for your RAG application',
-    icon: <span className="app-icon">🧮</span>
+    id: 'app1',
+    title: 'Data Explorer',
+    description: 'Explore and analyze your data with advanced visualization tools',
+    icon: <span className="app-icon">📊</span>
   },
   {
     id: 'app2',
@@ -45,50 +44,17 @@ const appCards = [
 ];
 
 const Dashboard = () => {
-  const [activeApp, setActiveApp] = useState(null);
-
   const handleAppClick = (appId) => {
-    setActiveApp(appId);
-    console.log(`Opening app: ${appId}`);
+    // This would navigate to the appropriate app in a real implementation
+    console.log(`Navigating to app: ${appId}`);
+    // Example: history.push(`/apps/${appId}`);
   };
 
-  const handleBackToApps = () => {
-    setActiveApp(null);
-  };
-
-  // Render the selected app or the app grid
-  const renderContent = () => {
-    if (activeApp === 'rag-calculator') {
-      return (
-        <div className="app-container">
-          <div className="app-header">
-            <button className="back-button" onClick={handleBackToApps}>
-              ← Back to Apps
-            </button>
-          </div>
-          <RAGCalculator />
-        </div>
-      );
-    } else if (activeApp) {
-      // Placeholder for other apps
-      return (
-        <div className="app-container">
-          <div className="app-header">
-            <button className="back-button" onClick={handleBackToApps}>
-              ← Back to Apps
-            </button>
-          </div>
-          <div className="app-placeholder">
-            <h2>{appCards.find(app => app.id === activeApp)?.title}</h2>
-            <p>This application is not yet implemented.</p>
-          </div>
-        </div>
-      );
-    }
-
-    // Default: Show the app grid
-    return (
-      <>
+  return (
+    <div className="dashboard-container">
+      <DashboardHeader />
+      
+      <main className="dashboard-content">
         <section className="welcome-section">
           <h2>Welcome to the deepset App Suite</h2>
           <p>Select an application to get started</p>
@@ -105,16 +71,6 @@ const Dashboard = () => {
             />
           ))}
         </section>
-      </>
-    );
-  };
-
-  return (
-    <div className="dashboard-container">
-      <DashboardHeader />
-      
-      <main className="dashboard-content">
-        {renderContent()}
       </main>
 
       <footer className="dashboard-footer">
