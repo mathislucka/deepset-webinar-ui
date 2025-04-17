@@ -6,7 +6,7 @@ on:
 
 jobs:
   process-ai-issue:
-    if: ${{ github.event.label.name == 'AI' }}
+    if: ${{ github.event.label.name == 'deepset-ai' }}
     runs-on: ubuntu-latest
     steps:
       - name: Send Issue to deepset AI Platform
