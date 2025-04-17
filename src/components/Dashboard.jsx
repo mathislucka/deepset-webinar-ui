@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DashboardHeader from './DashboardHeader';
 import AppCard from './AppCard';
+import RAGCalculator from './RAGCalculator';
 import '../styles/Dashboard.css';
 
-// Mock data for the app cards
+// App cards data
 const appCards = [
   {
-    id: 'app1',
-    title: 'Data Explorer',
-    description: 'Explore and analyze your data with advanced visualization tools',
-    icon: <span className="app-icon">📊</span>
+    id: 'rag-calculator',
+    title: 'RAG Cost Calculator',
+    description: 'Calculate LLM costs for your Retrieval Augmented Generation applications',
+    icon: <span className="app-icon">💰</span>
   },
   {
     id: 'app2',
@@ -44,10 +45,17 @@ const appCards = [
 ];
 
 const Dashboard = () => {
+  const [activeApp, setActiveApp] = useState(null);
+
   const handleAppClick = (appId) => {
-    // This would navigate to the appropriate app in a real implementation
-    console.log(`Navigating to app: ${appId}`);
-    // Example: history.push(`/apps/${appId}`);
+    setActiveApp(appId);
+  };
+
+  const renderActiveApp = () => {
+    if (activeApp === 'rag-calculator') {
+      return <RAGCalculator />;
+    }
+    return null;
   };
 
   return (
@@ -55,22 +63,38 @@ const Dashboard = () => {
       <DashboardHeader />
       
       <main className="dashboard-content">
-        <section className="welcome-section">
-          <h2>Welcome to the deepset App Suite</h2>
-          <p>Select an application to get started</p>
-        </section>
-        
-        <section className="apps-grid">
-          {appCards.map((app) => (
-            <AppCard
-              key={app.id}
-              title={app.title}
-              description={app.description}
-              icon={app.icon}
-              onClick={() => handleAppClick(app.id)}
-            />
-          ))}
-        </section>
+        {!activeApp ? (
+          <>
+            <section className="welcome-section">
+              <h2>Welcome to the deepset App Suite</h2>
+              <p>Select an application to get started</p>
+            </section>
+            
+            <section className="apps-grid">
+              {appCards.map((app) => (
+                <AppCard
+                  key={app.id}
+                  title={app.title}
+                  description={app.description}
+                  icon={app.icon}
+                  onClick={() => handleAppClick(app.id)}
+                />
+              ))}
+            </section>
+          </>
+        ) : (
+          <div className="active-app-container">
+            <div className="app-breadcrumb">
+              <button onClick={() => setActiveApp(null)} className="back-button">
+                ← Back to Dashboard
+              </button>
+              <h2>{appCards.find(app => app.id === activeApp)?.title}</h2>
+            </div>
+            <div className="app-content">
+              {renderActiveApp()}
+            </div>
+          </div>
+        )}
       </main>
 
       <footer className="dashboard-footer">
