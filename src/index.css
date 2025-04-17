@@ -59,12 +59,4 @@ code {
   border-radius: 4px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-}
+/* we're using a fixed light theme with deepset colors */
