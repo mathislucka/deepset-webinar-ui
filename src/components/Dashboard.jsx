@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DashboardHeader from './DashboardHeader';
 import AppCard from './AppCard';
+import RAGCalculator from './RAGCalculator';
 import '../styles/Dashboard.css';
 
-// Mock data for the app cards
+// App cards data
 const appCards = [
   {
-    id: 'app1',
-    title: 'Data Explorer',
-    description: 'Explore and analyze your data with advanced visualization tools',
-    icon: <span className="app-icon">📊</span>
+    id: 'rag-calculator',
+    title: 'RAG Cost Calculator',
+    description: 'Calculate LLM costs for your Retrieval Augmented Generation applications',
+    icon: <span className="app-icon">💰</span>
   },
   {
     id: 'app2',
