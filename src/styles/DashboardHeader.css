@@ -1,0 +1,36 @@
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: linear-gradient(to right, var(--color-surface-subtle), var(--color-surface-weak));
+  box-shadow: 0 2px 8px rgba(7, 18, 51, 0.06);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-title h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+  }
+  
+  .header-title h1 {
+    font-size: 1.4rem;
+  }
+}
