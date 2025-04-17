@@ -1,84 +1,39 @@
 .App {
-  width: 100%;
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.app-header {
-  background-color: var(--primary-color);
-  padding: 2rem 0;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.app-header h1 {
-  color: white;
-  margin-bottom: 0.5rem;
+.card {
+  padding: 2em;
 }
 
-.app-header .subtitle {
-  font-size: 1.1rem;
-  opacity: 0.9;
-  margin: 0;
+.read-the-docs {
+  color: #888;
 }
 
-.main-content {
-  flex: 1;
-  padding: 2rem 0;
+button {
+  font-size: 1em;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #61dafb;
+  color: #282c34;
+  font-weight: bold;
+  margin: 1em 0;
+  transition: background-color 0.3s;
 }
 
-.app-footer {
-  background-color: var(--bg-color);
-  border-top: 1px solid var(--border-color);
-  padding: 1.5rem 0;
-  margin-top: 2rem;
-  color: var(--text-secondary);
-}
-
-.calculator-container {
-  margin-bottom: 2rem;
-}
-
-.results-container h2 {
-  margin-top: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
-  }
-  
-  .app-header {
-    padding: 1.5rem 0;
-  }
-  
-  .main-content {
-    padding: 1.5rem 0;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  .card {
-    padding: 1.25rem;
-  }
+button:hover {
+  background-color: #4fa8c7;
 }

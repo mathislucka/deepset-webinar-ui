@@ -1,18 +1,25 @@
+import { useState } from 'react'
 import './App.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Calculator from './components/Calculator'
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
     <div className="App">
-      <Header />
-      <main className="main-content">
-        <div className="container">
-          <Calculator />
+      <header className="App-header">
+        <h1>React + Vite on GitHub Pages</h1>
+        <div className="card">
+          <button onClick={() => setCount((count) => count + 1)}>
+            count is {count}
+          </button>
+          <p>
+            Edit <code>src/App.jsx</code> and save to test HMR
+          </p>
         </div>
-      </main>
-      <Footer />
+        <p className="read-the-docs">
+          Click on the Vite and React logos to learn more
+        </p>
+      </header>
     </div>
   )
 }
