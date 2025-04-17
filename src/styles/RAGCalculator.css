@@ -1,0 +1,294 @@
+/* RAG Calculator Styles */
+.rag-calculator {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.calculator-header {
+  margin-bottom: 1.5rem;
+}
+
+.calculator-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.calculator-header p {
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  opacity: 0.8;
+}
+
+.calculator-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.inputs-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: var(--color-surface-subtle);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(7, 18, 51, 0.05);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.input-with-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.input-with-buttons button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--color-surface-medium);
+  color: var(--color-text-primary);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.input-with-buttons button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.input-with-buttons button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.input-with-buttons button:hover {
+  background: var(--color-accent);
+  color: white;
+}
+
+.input-with-buttons input {
+  flex: 1;
+  height: 36px;
+  border: none;
+  border-top: 1px solid var(--color-surface-medium);
+  border-bottom: 1px solid var(--color-surface-medium);
+  text-align: center;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  background: var(--color-surface-weak);
+}
+
+.input-group select {
+  height: 36px;
+  border: 1px solid var(--color-surface-medium);
+  border-radius: 4px;
+  padding: 0 10px;
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  background: var(--color-surface-weak);
+}
+
+.results-container {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: var(--color-surface-subtle);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(7, 18, 51, 0.05);
+}
+
+.summary-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-box {
+  flex: 1;
+  padding: 12px;
+  background: var(--color-surface-weak);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--color-text-primary);
+  opacity: 0.7;
+  margin: 0 0 4px 0;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.results-table-wrapper {
+  overflow-x: auto;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.results-table th {
+  background: var(--color-surface-medium);
+  color: var(--color-text-primary);
+  text-align: left;
+  padding: 12px 10px;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.results-table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--color-surface-weak);
+  color: var(--color-text-primary);
+}
+
+.provider-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.provider-badge.openai {
+  background: rgba(16, 163, 127, 0.15);
+  color: rgb(16, 163, 127);
+}
+
+.provider-badge.anthropic {
+  background: rgba(153, 51, 255, 0.15);
+  color: rgb(153, 51, 255);
+}
+
+.provider-badge.google {
+  background: rgba(66, 133, 244, 0.15);
+  color: rgb(66, 133, 244);
+}
+
+.total-cost {
+  font-weight: 600;
+}
+
+.best-option {
+  background: rgba(37, 88, 255, 0.05);
+}
+
+.pricing-details {
+  margin-top: 24px;
+}
+
+.pricing-details h3 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: var(--color-text-primary);
+}
+
+.pricing-tables-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.pricing-table {
+  flex: 1;
+  min-width: 250px;
+  padding: 16px;
+  background: var(--color-surface-subtle);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(7, 18, 51, 0.05);
+}
+
+.pricing-table h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+}
+
+.pricing-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.pricing-table th {
+  background: var(--color-surface-medium);
+  color: var(--color-text-primary);
+  text-align: left;
+  padding: 8px 6px;
+  font-weight: 600;
+}
+
+.pricing-table td {
+  padding: 6px;
+  border-bottom: 1px solid var(--color-surface-weak);
+  color: var(--color-text-primary);
+}
+
+.pricing-table.openai h4 {
+  color: rgb(16, 163, 127);
+}
+
+.pricing-table.anthropic h4 {
+  color: rgb(153, 51, 255);
+}
+
+.pricing-table.google h4 {
+  color: rgb(66, 133, 244);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .calculator-container {
+    flex-direction: column;
+  }
+  
+  .pricing-table {
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-tables-container {
+    flex-direction: column;
+  }
+  
+  .summary-stats {
+    flex-direction: column;
+  }
+}
