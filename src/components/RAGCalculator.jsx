@@ -87,6 +87,11 @@ const RAGCalculator = () => {
         const outputCost = totalOutputTokens * (model.outputPrice / 1000000);
         const totalCost = inputCost + cachedInputCost + outputCost;
 
+        // Calculate token counts and costs
+        const monthlyTokens = totalInputTokens + totalOutputTokens;
+        const costPer1kTokens = (totalCost / monthlyTokens) * 1000;
+        const costPerQuery = totalCost / queriesPerMonth;
+
         allResults.push({
           provider,
           model: model.name,
@@ -94,6 +99,8 @@ const RAGCalculator = () => {
           cachedInputCost: cachedInputCost.toFixed(2),
           outputCost: outputCost.toFixed(2),
           totalCost: totalCost.toFixed(2),
+          costPer1kTokens: costPer1kTokens.toFixed(4),
+          costPerQuery: costPerQuery.toFixed(4),
           inputTokenPrice: model.inputPrice,
           cachedInputPrice: model.cachedInputPrice,
           outputTokenPrice: model.outputPrice
