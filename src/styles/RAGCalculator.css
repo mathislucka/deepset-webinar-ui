@@ -287,6 +287,22 @@
   font-style: italic;
 }
 
+.chart-note button {
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  cursor: pointer;
+  text-decoration: underline;
+  font-style: normal;
+  font-size: 0.8rem;
+  padding: 0;
+  margin-left: 8px;
+}
+
+.chart-note button:hover {
+  opacity: 0.8;
+}
+
 .results-table th {
   background: var(--color-surface-medium);
   color: var(--color-text-primary);
