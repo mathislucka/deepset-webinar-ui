@@ -213,7 +213,7 @@ const RAGCalculator = () => {
             <div className="stat-box">
               <p className="stat-label">Cheapest option</p>
               <p className="stat-value">
-                {results.length > 0 ? `$${parseFloat(results[0].totalCost).toLocaleString()}` : '-'}
+                {results.length > 0 ? formatCurrency(results[0].totalCost) : '-'}
               </p>
             </div>
           </div>
