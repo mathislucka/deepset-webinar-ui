@@ -45,6 +45,7 @@ const RAGCalculator = () => {
   const [outputTokens, setOutputTokens] = useState(700);
   const [cachingRate, setCachingRate] = useState(0);
   const [selectedProvider, setSelectedProvider] = useState('all');
+  const [viewMode, setViewMode] = useState('table'); // table or comparison
   const [results, setResults] = useState([]);
 
   // Calculate costs whenever inputs change
