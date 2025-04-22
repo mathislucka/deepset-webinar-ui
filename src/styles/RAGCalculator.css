@@ -187,6 +187,104 @@
   font-size: 0.9rem;
 }
 
+/* Comparison Chart Styles */
+.comparison-chart {
+  margin-top: 12px;
+  width: 100%;
+}
+
+.chart-header {
+  margin-bottom: 16px;
+}
+
+.chart-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.chart-subtitle {
+  font-size: 0.8rem;
+  color: var(--color-text-primary);
+  opacity: 0.7;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.chart-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chart-label {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.model-name {
+  font-size: 0.8rem;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chart-bar-wrapper {
+  flex: 1;
+  height: 32px;
+  background: var(--color-surface-weak);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.chart-bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: width 0.5s ease-out;
+  position: relative;
+}
+
+.chart-bar.openai {
+  background: linear-gradient(to right, rgba(16, 163, 127, 0.7), rgb(16, 163, 127));
+}
+
+.chart-bar.anthropic {
+  background: linear-gradient(to right, rgba(153, 51, 255, 0.7), rgb(153, 51, 255));
+}
+
+.chart-bar.google {
+  background: linear-gradient(to right, rgba(66, 133, 244, 0.7), rgb(66, 133, 244));
+}
+
+.chart-value {
+  position: absolute;
+  right: 8px;
+  font-weight: 600;
+}
+
+.chart-note {
+  font-size: 0.8rem;
+  color: var(--color-text-primary);
+  opacity: 0.7;
+  margin-top: 8px;
+  font-style: italic;
+}
+
 .results-table th {
   background: var(--color-surface-medium);
   color: var(--color-text-primary);
