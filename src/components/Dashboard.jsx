@@ -11,37 +11,8 @@ const appCards = [
     title: 'RAG Cost Calculator',
     description: 'Calculate LLM costs for your Retrieval Augmented Generation applications',
     icon: <span className="app-icon">💰</span>
-  },
-  {
-    id: 'app2',
-    title: 'AI Assistant',
-    description: 'Get intelligent answers to your questions using our AI technology',
-    icon: <span className="app-icon">🤖</span>
-  },
-  {
-    id: 'app3',
-    title: 'Document Analyzer',
-    description: 'Extract insights from documents using AI-powered analysis',
-    icon: <span className="app-icon">📝</span>
-  },
-  {
-    id: 'app4',
-    title: 'Knowledge Base',
-    description: 'Access your organization\'s knowledge base and documentation',
-    icon: <span className="app-icon">📚</span>
-  },
-  {
-    id: 'app5',
-    title: 'Model Training',
-    description: 'Train and fine-tune machine learning models for your use case',
-    icon: <span className="app-icon">🧠</span>
-  },
-  {
-    id: 'app6',
-    title: 'Settings',
-    description: 'Configure your workspace and application preferences',
-    icon: <span className="app-icon">⚙️</span>
   }
+  // Future apps will be added here
 ];
 
 const Dashboard = () => {
