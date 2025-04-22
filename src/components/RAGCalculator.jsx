@@ -102,6 +102,20 @@ const RAGCalculator = () => {
       <div className="calculator-header">
         <h2>RAG LLM Cost Calculator</h2>
         <p>Calculate monthly LLM costs for your Retrieval Augmented Generation applications</p>
+        <div className="view-toggle">
+          <button 
+            className={viewMode === 'table' ? 'active' : ''}
+            onClick={() => setViewMode('table')}
+          >
+            Table View
+          </button>
+          <button 
+            className={viewMode === 'comparison' ? 'active' : ''}
+            onClick={() => setViewMode('comparison')}
+          >
+            Comparison View
+          </button>
+        </div>
       </div>
 
       <div className="calculator-container">
