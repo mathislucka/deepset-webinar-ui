@@ -238,10 +238,10 @@ const RAGCalculator = () => {
                         <span className={`provider-badge ${result.provider}`}>{result.provider}</span>
                       </td>
                       <td>{result.model}</td>
-                      <td>${result.inputCost}</td>
-                      <td>${result.cachedInputCost}</td>
-                      <td>${result.outputCost}</td>
-                      <td className="total-cost">${result.totalCost}</td>
+                      <td>{formatCurrency(result.inputCost)}</td>
+                      <td>{formatCurrency(result.cachedInputCost)}</td>
+                      <td>{formatCurrency(result.outputCost)}</td>
+                      <td className="total-cost">{formatCurrency(result.totalCost)}</td>
                     </tr>
                   ))}
                 </tbody>
