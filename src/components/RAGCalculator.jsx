@@ -209,34 +209,68 @@ const RAGCalculator = () => {
             </div>
           </div>
 
-          <div className="results-table-wrapper">
-            <table className="results-table">
-              <thead>
-                <tr>
-                  <th>Provider</th>
-                  <th>Model</th>
-                  <th>Input Cost</th>
-                  <th>Cached Cost</th>
-                  <th>Output Cost</th>
-                  <th>Total Cost</th>
-                </tr>
-              </thead>
-              <tbody>
-                {results.map((result, index) => (
-                  <tr key={index} className={index === 0 ? 'best-option' : ''}>
-                    <td>
-                      <span className={`provider-badge ${result.provider}`}>{result.provider}</span>
-                    </td>
-                    <td>{result.model}</td>
-                    <td>${result.inputCost}</td>
-                    <td>${result.cachedInputCost}</td>
-                    <td>${result.outputCost}</td>
-                    <td className="total-cost">${result.totalCost}</td>
+          {viewMode === 'table' ? (
+            <div className="results-table-wrapper">
+              <table className="results-table">
+                <thead>
+                  <tr>
+                    <th>Provider</th>
+                    <th>Model</th>
+                    <th>Input Cost</th>
+                    <th>Cached Cost</th>
+                    <th>Output Cost</th>
+                    <th>Total Cost</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {results.map((result, index) => (
+                    <tr key={index} className={index === 0 ? 'best-option' : ''}>
+                      <td>
+                        <span className={`provider-badge ${result.provider}`}>{result.provider}</span>
+                      </td>
+                      <td>{result.model}</td>
+                      <td>${result.inputCost}</td>
+                      <td>${result.cachedInputCost}</td>
+                      <td>${result.outputCost}</td>
+                      <td className="total-cost">${result.totalCost}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="comparison-chart">
+              <div className="chart-header">
+                <div className="chart-title">Total Monthly Cost Comparison</div>
+                <div className="chart-subtitle">Based on {queriesPerDay.toLocaleString()} queries per day with {inputTokens.toLocaleString()} input tokens and {outputTokens.toLocaleString()} output tokens</div>
+              </div>
+              <div className="chart-container">
+                {results.slice(0, 15).map((result, index) => {
+                  const maxCost = Math.max(...results.slice(0, 15).map(r => parseFloat(r.totalCost)));
+                  const percentage = (parseFloat(result.totalCost) / maxCost) * 100;
+                  return (
+                    <div key={index} className="chart-bar-container">
+                      <div className="chart-label">
+                        <span className={`provider-badge ${result.provider}`}>{result.provider}</span>
+                        <span className="model-name">{result.model}</span>
+                      </div>
+                      <div className="chart-bar-wrapper">
+                        <div 
+                          className={`chart-bar ${result.provider}`} 
+                          style={{ width: `${percentage}%` }}
+                        >
+                          <span className="chart-value">${parseFloat(result.totalCost).toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              {results.length > 15 && (
+                <div className="chart-note">* Showing top 15 most cost-effective models</div>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
