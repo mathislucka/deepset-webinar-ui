@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/RAGCalculator.css';
 
-// Model price data
+// Model price data (prices per million tokens in USD)
 const MODEL_PRICING = {
   openai: [
     { name: 'GPT-4.1', inputPrice: 2.00, cachedInputPrice: 0.50, outputPrice: 8.00 },
@@ -9,7 +9,20 @@ const MODEL_PRICING = {
     { name: 'GPT-4.1-nano', inputPrice: 0.10, cachedInputPrice: 0.025, outputPrice: 0.40 },
     { name: 'GPT-4.5-preview', inputPrice: 75.00, cachedInputPrice: 37.50, outputPrice: 150.00 },
     { name: 'GPT-4o', inputPrice: 2.50, cachedInputPrice: 1.25, outputPrice: 10.00 },
-    { name: 'GPT-4o-mini', inputPrice: 0.15, cachedInputPrice: 0.075, outputPrice: 0.60 }
+    { name: 'GPT-4o-audio-preview', inputPrice: 2.50, cachedInputPrice: null, outputPrice: 10.00 },
+    { name: 'GPT-4o-realtime-preview', inputPrice: 5.00, cachedInputPrice: 2.50, outputPrice: 20.00 },
+    { name: 'GPT-4o-mini', inputPrice: 0.15, cachedInputPrice: 0.075, outputPrice: 0.60 },
+    { name: 'GPT-4o-mini-audio-preview', inputPrice: 0.15, cachedInputPrice: null, outputPrice: 0.60 },
+    { name: 'GPT-4o-mini-realtime-preview', inputPrice: 0.60, cachedInputPrice: 0.30, outputPrice: 2.40 },
+    { name: 'O1', inputPrice: 15.00, cachedInputPrice: 7.50, outputPrice: 60.00 },
+    { name: 'O1-pro', inputPrice: 150.00, cachedInputPrice: null, outputPrice: 600.00 },
+    { name: 'O3', inputPrice: 10.00, cachedInputPrice: 2.50, outputPrice: 40.00 },
+    { name: 'O4-mini', inputPrice: 1.10, cachedInputPrice: 0.275, outputPrice: 4.40 },
+    { name: 'O3-mini', inputPrice: 1.10, cachedInputPrice: 0.55, outputPrice: 4.40 },
+    { name: 'O1-mini', inputPrice: 1.10, cachedInputPrice: 0.55, outputPrice: 4.40 },
+    { name: 'GPT-4o-mini-search-preview', inputPrice: 0.15, cachedInputPrice: null, outputPrice: 0.60 },
+    { name: 'GPT-4o-search-preview', inputPrice: 2.50, cachedInputPrice: null, outputPrice: 10.00 },
+    { name: 'Computer-use-preview', inputPrice: 3.00, cachedInputPrice: null, outputPrice: 12.00 }
   ],
   anthropic: [
     { name: 'Claude 3.7 Sonnet', inputPrice: 3.00, cachedInputPrice: 0.30, outputPrice: 15.00 },
@@ -17,7 +30,8 @@ const MODEL_PRICING = {
     { name: 'Claude 3 Opus', inputPrice: 15.00, cachedInputPrice: 1.50, outputPrice: 75.00 }
   ],
   google: [
-    { name: 'Gemini 2.5 Pro', inputPrice: 1.25, cachedInputPrice: null, outputPrice: 10.00 },
+    { name: 'Gemini 2.5 Pro (≤200k)', inputPrice: 1.25, cachedInputPrice: null, outputPrice: 10.00 },
+    { name: 'Gemini 2.5 Pro (>200k)', inputPrice: 2.50, cachedInputPrice: null, outputPrice: 15.00 },
     { name: 'Gemini 2.0 Flash', inputPrice: 0.10, cachedInputPrice: 0.025, outputPrice: 0.40 },
     { name: 'Gemini 2.0 Flash-Lite', inputPrice: 0.075, cachedInputPrice: null, outputPrice: 0.30 }
   ]
