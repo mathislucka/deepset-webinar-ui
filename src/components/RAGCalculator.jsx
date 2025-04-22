@@ -40,7 +40,7 @@ const MODEL_PRICING = {
 // Main calculator component
 const RAGCalculator = () => {
   // State variables
-  const [queriesPerDay, setQueriesPerDay] = useState(100);
+  const [queriesPerDay, setQueriesPerDay] = useState(1000);
   const [inputTokens, setInputTokens] = useState(15000);
   const [outputTokens, setOutputTokens] = useState(700);
   const [cachingRate, setCachingRate] = useState(0);
