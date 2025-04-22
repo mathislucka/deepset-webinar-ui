@@ -223,6 +223,12 @@ const RAGCalculator = () => {
                 {results.length > 0 ? formatCurrency(results[0].totalCost) : '-'}
               </p>
             </div>
+            <div className="stat-box">
+              <p className="stat-label">Cost per query</p>
+              <p className="stat-value">
+                {results.length > 0 ? `$${parseFloat(results[0].costPerQuery).toFixed(4)}` : '-'}
+              </p>
+            </div>
           </div>
 
           {viewMode === 'table' ? (
