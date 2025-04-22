@@ -302,8 +302,25 @@ const RAGCalculator = () => {
 
       <div className="pricing-details">
         <h3>Pricing details (per million tokens)</h3>
-        <div className="pricing-tables-container">
+        <div className="pricing-toggle">
           {['openai', 'anthropic', 'google'].map(provider => (
+            <button 
+              key={provider} 
+              className={selectedProvider === provider ? 'active' : ''}
+              onClick={() => setSelectedProvider(provider)}
+            >
+              {provider.charAt(0).toUpperCase() + provider.slice(1)}
+            </button>
+          ))}
+          <button 
+            className={selectedProvider === 'all' ? 'active' : ''}
+            onClick={() => setSelectedProvider('all')}
+          >
+            All Providers
+          </button>
+        </div>
+        <div className="pricing-tables-container">
+          {(selectedProvider === 'all' ? ['openai', 'anthropic', 'google'] : [selectedProvider]).map(provider => (
             <div key={provider} className={`pricing-table ${provider}`}>
               <h4>{provider.charAt(0).toUpperCase() + provider.slice(1)}</h4>
               <table>
