@@ -156,6 +156,7 @@
 
 .stat-box {
   flex: 1;
+  min-width: 120px;
   padding: 12px;
   background: var(--color-surface-weak);
   border-radius: 6px;
