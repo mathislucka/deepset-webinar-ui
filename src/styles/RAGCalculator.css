@@ -8,6 +8,7 @@
 
 .calculator-header {
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .calculator-header h2 {
@@ -20,6 +21,33 @@
   font-size: 0.9rem;
   color: var(--color-text-primary);
   opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.view-toggle {
+  display: flex;
+  margin-bottom: 1rem;
+  background: var(--color-surface-weak);
+  border-radius: 6px;
+  padding: 4px;
+  width: fit-content;
+}
+
+.view-toggle button {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+  color: var(--color-text-primary);
+  transition: all 0.2s ease;
+}
+
+.view-toggle button.active {
+  background: var(--color-accent);
+  color: white;
+  font-weight: 500;
 }
 
 .calculator-container {
