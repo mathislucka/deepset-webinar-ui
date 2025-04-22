@@ -268,7 +268,7 @@ const RAGCalculator = () => {
                           className={`chart-bar ${result.provider}`} 
                           style={{ width: `${percentage}%` }}
                         >
-                          <span className="chart-value">${parseFloat(result.totalCost).toLocaleString()}</span>
+                          <span className="chart-value">{formatCurrency(result.totalCost)}</span>
                         </div>
                       </div>
                     </div>
