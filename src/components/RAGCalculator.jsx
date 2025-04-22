@@ -242,6 +242,8 @@ const RAGCalculator = () => {
                     <th>Cached Cost</th>
                     <th>Output Cost</th>
                     <th>Total Cost</th>
+                    <th>Per Query</th>
+                    <th>Per 1K Tokens</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -255,6 +257,8 @@ const RAGCalculator = () => {
                       <td>{formatCurrency(result.cachedInputCost)}</td>
                       <td>{formatCurrency(result.outputCost)}</td>
                       <td className="total-cost">{formatCurrency(result.totalCost)}</td>
+                      <td>${parseFloat(result.costPerQuery).toFixed(4)}</td>
+                      <td>${parseFloat(result.costPer1kTokens).toFixed(4)}</td>
                     </tr>
                   ))}
                 </tbody>
