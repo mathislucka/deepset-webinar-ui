@@ -132,14 +132,14 @@ const RAGCalculator = () => {
           <div className="input-group">
             <label htmlFor="queriesPerDay">Queries per day</label>
             <div className="input-with-buttons">
-              <button onClick={() => setQueriesPerDay(Math.max(1, queriesPerDay - 10))}>-</button>
+              <button onClick={() => setQueriesPerDay(Math.max(1, queriesPerDay - 100))}>-</button>
               <input 
                 type="number" 
                 id="queriesPerDay" 
                 value={queriesPerDay} 
                 onChange={(e) => setQueriesPerDay(Math.max(1, parseInt(e.target.value) || 0))}
               />
-              <button onClick={() => setQueriesPerDay(queriesPerDay + 10)}>+</button>
+              <button onClick={() => setQueriesPerDay(queriesPerDay + 100)}>+</button>
             </div>
           </div>
 
