@@ -293,7 +293,7 @@ const RAGCalculator = () => {
                 })}
               </div>
               {results.length > 15 && (
-                <div className="chart-note">* Showing top 15 most cost-effective models</div>
+                <div className="chart-note">* Showing top 15 most cost-effective models. <button onClick={() => setViewMode('table')}>See full table view</button></div>
               )}
             </div>
           )}
