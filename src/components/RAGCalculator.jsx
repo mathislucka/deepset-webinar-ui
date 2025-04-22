@@ -52,6 +52,15 @@ const RAGCalculator = () => {
   useEffect(() => {
     calculateCosts();
   }, [queriesPerDay, inputTokens, outputTokens, cachingRate, selectedProvider]);
+  
+  // Helper function to format currency
+  const formatCurrency = (value) => {
+    const num = parseFloat(value);
+    if (num >= 1000) {
+      return `$${(num/1000).toFixed(1)}k`;
+    }
+    return `$${num.toLocaleString()}`;
+  };
 
   // Calculate the monthly costs for all models or selected provider
   const calculateCosts = () => {
