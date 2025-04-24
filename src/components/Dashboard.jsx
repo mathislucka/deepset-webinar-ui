@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DashboardHeader from './DashboardHeader';
 import AppCard from './AppCard';
 import RAGCalculator from './RAGCalculator';
+import AWSCalculator from './AWSCalculator';
 import '../styles/Dashboard.css';
 
 // App cards data
@@ -13,10 +14,10 @@ const appCards = [
     icon: <span className="app-icon">💰</span>
   },
   {
-    id: 'app2',
-    title: 'AI Assistant',
-    description: 'Get intelligent answers to your questions using our AI technology',
-    icon: <span className="app-icon">🤖</span>
+    id: 'aws-calculator',
+    title: 'AWS Cost Calculator',
+    description: 'Calculate AWS costs for EC2, S3, and OpenSearch services',
+    icon: <span className="app-icon">☁️</span>
   },
   {
     id: 'app3',
