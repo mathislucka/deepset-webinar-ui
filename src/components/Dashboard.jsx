@@ -55,6 +55,8 @@ const Dashboard = () => {
   const renderActiveApp = () => {
     if (activeApp === 'rag-calculator') {
       return <RAGCalculator />;
+    } else if (activeApp === 'aws-calculator') {
+      return <AWSCalculator />;
     }
     return null;
   };
