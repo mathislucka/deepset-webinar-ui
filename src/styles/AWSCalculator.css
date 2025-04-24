@@ -1,0 +1,469 @@
+/* AWS Calculator Styles */
+.aws-calculator {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-text-primary);
+}
+
+.calculator-header {
+  margin-bottom: 1.5rem;
+}
+
+.calculator-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.calculator-header p {
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  opacity: 0.8;
+}
+
+.calculator-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 12px 16px;
+  background: var(--color-surface-medium);
+  border-radius: 8px;
+}
+
+.region-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.region-selector label {
+  font-weight: 500;
+}
+
+.region-selector select {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--color-surface-weak);
+  background-color: var(--color-surface-subtle);
+  font-size: 0.9rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tab-button {
+  padding: 8px 16px;
+  background: var(--color-surface-subtle);
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--color-text-primary);
+}
+
+.tab-button:hover {
+  background: var(--color-surface-weak);
+}
+
+.tab-button.active {
+  background: var(--color-accent);
+  color: white;
+}
+
+.calculator-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background: var(--color-surface-subtle);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Instance styling */
+.instance-section, .storage-section {
+  margin-bottom: 24px;
+}
+
+.instance-section h3, .storage-section h3 {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  color: var(--color-text-primary);
+}
+
+.instance-grid, .storage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.instance-card, .storage-card {
+  background: var(--color-surface-weak);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.instance-card:hover, .storage-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.instance-header, .storage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.instance-header h4, .storage-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+}
+
+.instance-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.instance-badge.gpu {
+  background: rgba(76, 175, 80, 0.15);
+  color: #2e7d32;
+}
+
+.instance-badge.cpu {
+  background: rgba(33, 150, 243, 0.15);
+  color: #1565c0;
+}
+
+.instance-details, .storage-details {
+  margin-bottom: 12px;
+}
+
+.instance-details p, .storage-details p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+.instance-controls, .storage-controls {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.instance-controls label, .storage-controls label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.count-control, .storage-input {
+  display: flex;
+  align-items: center;
+}
+
+.count-control button {
+  width: 32px;
+  height: 32px;
+  background: var(--color-surface-medium);
+  border: none;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.count-control button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.count-control button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.count-control button:hover {
+  background: var(--color-accent);
+  color: white;
+}
+
+.count-control input, .storage-input input {
+  width: 60px;
+  height: 32px;
+  border: 1px solid var(--color-surface-medium);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.storage-input input {
+  width: 100%;
+  border-radius: 4px;
+  padding: 0 8px;
+}
+
+.storage-cost {
+  margin-top: 8px;
+  text-align: right;
+  font-weight: 600;
+}
+
+/* Cost summary styling */
+.cost-summary {
+  background: var(--color-surface-weak);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.cost-summary h3 {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  color: var(--color-text-primary);
+}
+
+.cost-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.cost-card {
+  background: var(--color-surface-subtle);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.cost-card h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  opacity: 0.8;
+}
+
+.cost-value {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.cost-card.total {
+  background: var(--color-accent);
+  color: white;
+}
+
+.cost-card.total h4, .cost-card.total .cost-value {
+  color: white;
+  opacity: 1;
+}
+
+/* Chart styling */
+.cost-chart {
+  display: flex;
+  gap: 24px;
+  height: 250px;
+}
+
+.chart-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.chart-bars {
+  display: flex;
+  height: 200px;
+  gap: 16px;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.chart-bar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-bar {
+  width: 100%;
+  max-width: 80px;
+  min-height: 2px;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+}
+
+.chart-label {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.chart-bar.tier-0 {
+  background: linear-gradient(to top, #81c784, #4caf50);
+}
+
+.chart-bar.tier-1 {
+  background: linear-gradient(to top, #64b5f6, #2196f3);
+}
+
+.chart-bar.tier-2 {
+  background: linear-gradient(to top, #a1887f, #795548);
+}
+
+.chart-bar.tier-3 {
+  background: linear-gradient(to top, #e57373, #f44336);
+}
+
+.chart-legend {
+  flex: 1;
+  padding: 16px;
+  background: var(--color-surface-subtle);
+  border-radius: 8px;
+}
+
+.chart-legend h4 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legend-color.tier-0 {
+  background: #4caf50;
+}
+
+.legend-color.tier-1 {
+  background: #2196f3;
+}
+
+.legend-color.tier-2 {
+  background: #795548;
+}
+
+.legend-color.tier-3 {
+  background: #f44336;
+}
+
+.legend-text {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+/* Total cost banner */
+.total-cost-banner {
+  background: linear-gradient(to right, var(--color-logo), var(--color-accent));
+  padding: 16px;
+  border-radius: 8px;
+  color: white;
+}
+
+.total-cost-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.total-cost-content h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.total-cost-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.cost-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.cost-item span:first-child {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.cost-item span:last-child {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.cost-item.total span:last-child {
+  font-size: 1.4rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .calculator-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .instance-grid, .storage-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cost-chart {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .chart-bars {
+    height: 150px;
+  }
+  
+  .total-cost-breakdown {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
